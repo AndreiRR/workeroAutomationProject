@@ -19,22 +19,32 @@ public class CreateOfficeTest extends BaseDriver  {
 
     @Test
     public void setNewOffice() throws IOException {
+        ExcelLibrary excel = new ExcelLibrary();
+
         LoginPage loginPage = new LoginPage(driver);
-        WorkeroHomepage homePage = loginPage.loginAsSupplier("andrei.raschitor@expertnetwork.ro","secret");
+        loginPage.setEmail(excel.getEmailAddress());
+        loginPage.setPassword(excel.getPassword());
+        WorkeroHomepage homePage = loginPage.loginAsSupplier();
         assertThat(driver.getTitle(),is("WORKERO - Home supplier"));
 
 
-        ExcelLibrary excel = new ExcelLibrary();
-        OfficeFirstPage contactInfoPage = homePage.pressAddOfficeBtns();
 
-        contactInfoPage.setOfficeName();
-        contactInfoPage.setOfficeVat("");
+        OfficeFirstPage contactInfoPage = homePage.pressAddOfficeBtns();
+        contactInfoPage.setOfficeName(excel.getOfficeNameValue());
+        contactInfoPage.setOfficeVat(excel.getOffiCeVatNumberValue());
 
         OfficeSecondPage calendarPage = contactInfoPage.setContactInfo();
         OfficeThirdPage amenitiesPage = calendarPage.setCalendarManagement();
-        OfficeFourthPage houseRulePage =  amenitiesPage.setAmenitiesAndServices("");
-        OfficeFifthPage fifthPage = houseRulePage.houseRule("houseRule");
-        OfficeSubmitToReviewPage submit = fifthPage.setProductType("","");
+        amenitiesPage.setWifiOn();
+        amenitiesPage.setParkingOn();
+        amenitiesPage.clickParkingDropDown();
+        amenitiesPage.setParkingPrice();
+        amenitiesPage.goToHouseRulePage();
 
+
+
+
+//        OfficeFifthPage fifthPage = houseRulesPage.houseRule(excel.getHouseRulesValue());
+//        OfficeSubmitToReviewPage submit = fifthPage.setProductType("","");
     }
 }

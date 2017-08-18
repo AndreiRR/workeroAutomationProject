@@ -23,9 +23,18 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public WorkeroHomepage loginAsSupplier(String email,String password) {
-        emailLocator.sendKeys(email);
+    public void setEmail(String emailAddress) {
+        emailLocator.sendKeys(emailAddress);
+        submitLocator.click();
+
+    }
+
+
+    public void setPassword(String password) {
         passwordLocator.sendKeys(password);
+    }
+
+    public WorkeroHomepage loginAsSupplier() {
         submitLocator.click();
         return new WorkeroHomepage(driver);
     }

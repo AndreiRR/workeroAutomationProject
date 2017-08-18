@@ -52,7 +52,7 @@ public class CreateOfficeLocators  {
     protected WebElement parkingLocator;
 
     @FindBy(xpath = "//button[@class='form-control input-to-disable button-sly-select'][text()='Type']")
-    protected WebElement parkingDDLocator;
+    protected WebElement parkingDropDownLocator;
 
     @FindBy(xpath = "//li[@value='2'][text()='Per hour']")
     protected WebElement parkingDpdDwnOptionLocator;

@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class OfficeThirdPage extends CreateOfficeLocators {
-    private WebDriver driver;
-
+    protected WebDriver driver;
 
 
     public OfficeThirdPage(WebDriver driver) {
@@ -24,25 +23,24 @@ public class OfficeThirdPage extends CreateOfficeLocators {
     }
 
 
-    public void setParkingPrice(String parkingPrice) {
-        priceParkingLocator.sendKeys(parkingPrice);
+    public void setParkingPrice() {
+        priceParkingLocator.clear();
+        priceParkingLocator.sendKeys();
     }
 
 
-    public void parkingDd() {
-        parkingDDLocator.click();
+    public void clickParkingDropDown() {
+        parkingDropDownLocator.click();
         parkingDpdDwnOptionLocator.click();
-//        Select select = new Select(driver.findElement(parkingDDLocator));
-//        select.selectByIndex(1);
+
     }
 
 
-    public OfficeFourthPage setAmenitiesAndServices(String parkingPrice) {
-        this.setWifiOn();
-        this.setParkingOn();
-        this.parkingDd();
-        this.setParkingPrice(parkingPrice);
+    public OfficeFourthPage goToHouseRulePage() {
         continueBtnLocator.click();
-        return  new OfficeFourthPage(driver);
+
+        return new OfficeFourthPage(driver);
     }
+
+
 }
