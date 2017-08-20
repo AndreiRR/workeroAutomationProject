@@ -9,7 +9,7 @@ import java.io.*;
 
 public class ExcelLibrary  {
 
-    File path = new File("D:\\workeroAutomation\\dataDrivenWorkero.xlsx");
+    File path = new File("D:\\workeroAutomationProject\\dataDrivenWorkero.xlsx");
 
     FileInputStream input = new FileInputStream(path);
     XSSFWorkbook workbook = new XSSFWorkbook(input);
@@ -59,8 +59,8 @@ public class ExcelLibrary  {
     }
 
     public String getParkingPriceValue() {
-        XSSFSheet amenitiesSheet = workbook.getSheetAt(3);
-        String parkingPriceValue = amenitiesSheet.getRow(0).getCell(1).getStringCellValue();
+        XSSFSheet amenitiesSheet = workbook.getSheetAt(2);
+        String parkingPriceValue = String.valueOf(amenitiesSheet.getRow(1).getCell(0));
 
         return parkingPriceValue;
     }
@@ -70,5 +70,12 @@ public class ExcelLibrary  {
         String houseRulesValue = houseruleSheet.getRow(1).getCell(0).getStringCellValue();
 
         return houseRulesValue;
+    }
+
+    public String getDeskValue() {
+        XSSFSheet desk = workbook.getSheetAt(4);
+        String deskValue = String.valueOf(desk.getRow(1).getCell(0));
+
+        return deskValue;
     }
 }

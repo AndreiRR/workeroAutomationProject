@@ -14,14 +14,17 @@ public class OfficeFifthPage extends CreateOfficeLocators  {
         this.driver = driver;
     }
 
-    public OfficeSubmitToReviewPage setProductType(String numberOfDesk,String floor) {
+    public void setDeskProduct(String numberOfDesk) {
         productDDLocator.click();
         numberOfProductLocator.sendKeys(numberOfDesk);
-        floorLocator.sendKeys(floor);
+        //floorLocator.sendKeys(floor);
+    }
+
+    public OfficeEditModePage clickSubmitForReview() {
         saveProductLocator.click();
         submitToReview.click();
         driver.switchTo().alert().accept();
 
-        return new OfficeSubmitToReviewPage(driver);
+        return new OfficeEditModePage(driver);
     }
 }

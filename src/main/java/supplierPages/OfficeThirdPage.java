@@ -23,9 +23,9 @@ public class OfficeThirdPage extends CreateOfficeLocators {
     }
 
 
-    public void setParkingPrice() {
+    public void setParkingPrice(String parkingPrice) {
         priceParkingLocator.clear();
-        priceParkingLocator.sendKeys();
+        priceParkingLocator.sendKeys(parkingPrice);
     }
 
 
@@ -41,6 +41,4 @@ public class OfficeThirdPage extends CreateOfficeLocators {
 
         return new OfficeFourthPage(driver);
     }
-
-
 }
