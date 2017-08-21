@@ -1,15 +1,21 @@
 package dataDriven;
 
 
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class ExcelLibrary  {
 
-    File path = new File("D:\\workeroAutomationProject\\dataDrivenWorkero.xlsx");
+    File path = new File("D:\\workeroAutomation\\dataDrivenWorkero.xlsx");
 
     FileInputStream input = new FileInputStream(path);
     XSSFWorkbook workbook = new XSSFWorkbook(input);
@@ -27,55 +33,49 @@ public class ExcelLibrary  {
     }
 
 
-
     public String getEmailAddress() throws IOException {
-        XSSFSheet supplierCredentialsSheet =  workbook.getSheetAt(1);
-        String emailAddress = supplierCredentialsSheet.getRow(1).getCell(0).getStringCellValue();
+       XSSFSheet supplierCredentialsSheet =  workbook.getSheet("SupplierLoginCredentials");
+       String emailAddress = supplierCredentialsSheet.getRow(1).getCell(0).getStringCellValue();
 
         return emailAddress;
     }
 
     public String getPassword() throws IOException {
-        XSSFSheet supplierCredentialsSheet =  workbook.getSheetAt(1);
+        XSSFSheet supplierCredentialsSheet =  workbook.getSheet("SupplierLoginCredentials");
         String password = supplierCredentialsSheet.getRow(1).getCell(1).getStringCellValue();
 
         return password;
     }
 
 
+    public String getOfficeContactInfoElements() throws IOException {
+        XSSFSheet officeContactInfoSheet = workbook.getSheet("OfficeContactInfo");
 
-    public String getOfficeNameValue() throws IOException {
-        XSSFSheet contactInfoSheet = readExcel();
-        String officeNameValue = contactInfoSheet.getRow(2).getCell(0).getStringCellValue();
+        Iterator<Row> rowIterator = officeContactInfoSheet.iterator();
+        officeContactInfoSheet.iterator();
+        rowIterator.next();
 
-        return officeNameValue;
-    }
+        ArrayList<String> officeFirstStepElementsList = new ArrayList<>();
 
-    public String getOffiCeVatNumberValue() throws IOException {
-        XSSFSheet contactInfoSheet = readExcel();
-        String vatNumberValue = contactInfoSheet.getRow(1).getCell(1).getStringCellValue();
 
-        return vatNumberValue;
-    }
+        while (rowIterator.hasNext())
+        {
+            Row row = rowIterator.next();
+            Iterator<Cell> cellIterator = row.cellIterator();
 
-    public String getParkingPriceValue() {
-        XSSFSheet amenitiesSheet = workbook.getSheetAt(2);
-        String parkingPriceValue = String.valueOf(amenitiesSheet.getRow(1).getCell(0));
+            while (cellIterator.hasNext()) {
 
-        return parkingPriceValue;
-    }
-
-    public String getHouseRulesValue() throws IOException {
-        XSSFSheet houseruleSheet =  workbook.getSheetAt(3);
-        String houseRulesValue = houseruleSheet.getRow(1).getCell(0).getStringCellValue();
-
-        return houseRulesValue;
-    }
-
-    public String getDeskValue() {
-        XSSFSheet desk = workbook.getSheetAt(4);
-        String deskValue = String.valueOf(desk.getRow(1).getCell(0));
-
-        return deskValue;
+                Cell cell = cellIterator.next();
+                switch (cell.getCellType())
+                {
+                    case Cell.CELL_TYPE_STRING:
+                        officeFirstStepElementsList.add( cell.getStringCellValue());
+                        break;
+                }
+            }
+        }
+        System.out.print(officeFirstStepElementsList);
+        workbook.close();
+        return officeFirstStepElementsList.toString();
     }
 }

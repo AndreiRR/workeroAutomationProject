@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OfficeFirstPage extends CreateOfficeLocators {
-    private WebDriver driver;
-    private WebElement continueBtn;
+    protected WebDriver driver;
+    protected WebElement continueBtn;
 
 
 
@@ -20,13 +20,54 @@ public class OfficeFirstPage extends CreateOfficeLocators {
     }
 
 
-    public void setOfficeName(String officeName) {
-        officeNameLocator.sendKeys(officeName);
+    public void setOfficeName(String officeNameValue) {
+        officeNameLocator.sendKeys(officeNameValue);
     }
 
-    public void setOfficeVat(String officeVat) {
-        vatNumberLocator.sendKeys(officeVat);
+    public void setOfficeVat(String officeVatValue) {
+        vatNumberLocator.sendKeys(officeVatValue);
     }
+
+    public void setDescription(String descriptionValue) {
+        descriptionLocator.sendKeys(descriptionValue);
+    }
+
+    public void setStreetAddress(String streetAddressValue) {
+        descriptionLocator.sendKeys(streetAddressValue);
+    }
+
+    public void setCity(String cityValue) {
+        cityLocator.sendKeys(cityValue);
+    }
+
+    public void setPostalCode(String postalCodeValue) {
+        postalCodeLocator.sendKeys(postalCodeValue);
+    }
+
+    public void setCountry(String countryValue) {
+        countryLocator.sendKeys(countryValue);
+    }
+
+    public void setOfficeEmail(String officeEmailValue) {
+        officeNameLocator.sendKeys(officeEmailValue);
+    }
+
+    public void setContactPerson(String contactPersonValue) {
+        contactPersonLocator.sendKeys(contactPersonValue);
+    }
+
+    public void setEmailContactPerson(String emailContactPersonValue) {
+        emailAddresslocator.sendKeys(emailContactPersonValue);
+    }
+
+    public void setPhoneNumber(String phoneNumberValue) {
+        phoneNumberLocator.sendKeys(phoneNumberValue);
+    }
+
+    public void setDirections(String directionsValue) {
+        directionsLocator.sendKeys(directionsValue);
+    }
+
 
     public OfficeSecondPage setContactInfo() {
         WebDriverWait wait = new WebDriverWait(driver,10);

@@ -25,23 +25,25 @@ public class CreateOfficeTest extends BaseDriver  {
 
         OfficeFirstPage contactInfoPage = homePage.pressAddOfficeBtns();
         assertThat(driver.getTitle(),is("WORKERO - Contact information"));
-        contactInfoPage.setOfficeName(excel.getOfficeNameValue());
-        contactInfoPage.setOfficeVat(excel.getOffiCeVatNumberValue());
+        contactInfoPage.setOfficeName(excel.getOfficeContactInfoElements());
+        contactInfoPage.setOfficeVat(excel.getOfficeContactInfoElements());
+        contactInfoPage.setDescription(excel.getOfficeContactInfoElements());
+        contactInfoPage.setStreetAddress(excel.getOfficeContactInfoElements());
 
         OfficeSecondPage calendarPage = contactInfoPage.setContactInfo();
-        assertThat(driver.getTitle(),is("WORKERO - Create office calendar"));
-        OfficeThirdPage amenitiesPage = calendarPage.setCalendarManagement();
+//        assertThat(driver.getTitle(),is("WORKERO - Create office calendar"));
+//        OfficeThirdPage amenitiesPage = calendarPage.setCalendarManagement();
+//
+//        amenitiesPage.setWifiOn();
+//        amenitiesPage.setParkingOn();
+//        amenitiesPage.clickParkingDropDown();
+//        amenitiesPage.setParkingPrice(excel.getParkingPriceValue());
+//        amenitiesPage.goToHouseRulePage();
+//
+//        OfficeFourthPage houseRulePage = new OfficeFourthPage(driver);
+//        OfficeFifthPage fifthPage = houseRulePage.houseRule(excel.getHouseRulesValue());
+//        fifthPage.setDeskProduct(excel.getDeskValue());
 
-        amenitiesPage.setWifiOn();
-        amenitiesPage.setParkingOn();
-        amenitiesPage.clickParkingDropDown();
-        amenitiesPage.setParkingPrice(excel.getParkingPriceValue());
-        amenitiesPage.goToHouseRulePage();
-
-        OfficeFourthPage houseRulePage = new OfficeFourthPage(driver);
-        OfficeFifthPage fifthPage = houseRulePage.houseRule(excel.getHouseRulesValue());
-        fifthPage.setDeskProduct(excel.getDeskValue());
-       // OfficeEditModePage submitToReviewPage
 
 
 

@@ -15,16 +15,38 @@ public class CreateOfficeLocators  {
     @FindBy(className = "btnOpacity")
     protected WebElement continueButtonLocator;
 
-//    By descriptionLocator = By.id("description");
-//    By streetLocator = By.id("street");
-//    By cityLocator = By.id("street");
-//    By stateLocator = By.id("state");
-//    By postalCodeLocator = By.id("postal_code");
-//    By countryLocator = By.id("country");
-//    By officeEmailLocator = By.id("office_email");
-//    By contactPersonLocator = By.id("contact_person");
-//    By emailAddresslocator = By.id("email_address");
-//    By directionsLocator = By.id("directions");
+    @FindBy(id = "description")
+    protected WebElement descriptionLocator;
+
+    @FindBy(id = "street")
+    protected WebElement streetLocator;
+
+    @FindBy(id = "city")
+    protected WebElement cityLocator;
+
+    @FindBy(id = "state")
+    protected WebElement stateLocator;
+
+    @FindBy(id = "postal_code")
+    protected WebElement postalCodeLocator;
+
+    @FindBy(id = "country")
+    protected WebElement countryLocator;
+
+    @FindBy(id = "office_email")
+    protected WebElement officeEmailLocator;
+
+    @FindBy(id = "contact_person")
+    protected WebElement contactPersonLocator;
+
+    @FindBy(id = "email_address")
+    protected WebElement emailAddresslocator;
+
+    @FindBy(id = "phone")
+    protected WebElement phoneNumberLocator;
+
+    @FindBy(id = "directions")
+    protected WebElement directionsLocator;
 
 
     //SecondStep Locators
