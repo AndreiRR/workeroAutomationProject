@@ -14,12 +14,12 @@ public class OfficeFourthPage extends CreateOfficeLocators {
 
 
 
-    public OfficeFifthPage houseRule(String houseRuleName) {
+    public OfficeDesksFifthPage houseRule(String houseRuleName) {
         addAnotherHouseRuleLocator.click();
         houseRuleNameLocator.sendKeys(houseRuleName);
-        saveBtn.click();
+        houseRuleSaveBtn.click();
         continueBtn.click();
 
-        return new OfficeFifthPage(driver);
+        return new OfficeDesksFifthPage(driver);
     }
 }

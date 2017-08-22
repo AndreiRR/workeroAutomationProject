@@ -33,11 +33,15 @@ public class OfficeFirstPage extends CreateOfficeLocators {
     }
 
     public void setStreetAddress(String streetAddressValue) {
-        descriptionLocator.sendKeys(streetAddressValue);
+        streetLocator.sendKeys(streetAddressValue);
     }
 
     public void setCity(String cityValue) {
         cityLocator.sendKeys(cityValue);
+    }
+
+    public void setState(String stateValue) {
+        stateLocator.sendKeys(stateValue);
     }
 
     public void setPostalCode(String postalCodeValue) {
@@ -49,7 +53,7 @@ public class OfficeFirstPage extends CreateOfficeLocators {
     }
 
     public void setOfficeEmail(String officeEmailValue) {
-        officeNameLocator.sendKeys(officeEmailValue);
+        officeEmailLocator.sendKeys(officeEmailValue);
     }
 
     public void setContactPerson(String contactPersonValue) {
@@ -64,8 +68,8 @@ public class OfficeFirstPage extends CreateOfficeLocators {
         phoneNumberLocator.sendKeys(phoneNumberValue);
     }
 
-    public void setDirections(String directionsValue) {
-        directionsLocator.sendKeys(directionsValue);
+    public void setDirections(String officeDirectionsValue) {
+        officeDirectionsLocator.sendKeys(officeDirectionsValue);
     }
 
 

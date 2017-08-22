@@ -1,5 +1,6 @@
 package locators;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -46,7 +47,7 @@ public class CreateOfficeLocators  {
     protected WebElement phoneNumberLocator;
 
     @FindBy(id = "directions")
-    protected WebElement directionsLocator;
+    protected WebElement officeDirectionsLocator;
 
 
     //SecondStep Locators
@@ -94,15 +95,15 @@ public class CreateOfficeLocators  {
     protected WebElement houseRuleNameLocator;
 
     @FindBy(id = "custom-rule-save")
-    protected WebElement saveBtn;
+    protected WebElement houseRuleSaveBtn;
 
     @FindBy(xpath = ".//*[@id='page-wrapper']/div/div/div[1]/div[1]/div/div[2]/div/a[2]")
     protected WebElement continueBtn;
 
 
-    //FifthStep Locators
+    //FifthStep  Desk Locators
     @FindBy(xpath = "//option[@value='desk']")
-    protected WebElement productDDLocator;
+    protected WebElement productDropDownLocator;
 
     @FindBy(id = "desk.1.number_of_desks")
     protected WebElement numberOfProductLocator;
@@ -117,17 +118,70 @@ public class CreateOfficeLocators  {
     protected WebElement pricePerHourGreaterThanLocator;
 
     @FindBy(id = "desk.1.price_day")
-    protected WebElement pricePerDayLocator;
+    protected WebElement deskPricePerDayLocator;
 
     @FindBy(id = "desk.1.price_week")
-    protected WebElement pricePerWeekLocator;
+    protected WebElement deskPricePerWeekLocator;
 
     @FindBy(id = "desk.1.price_month")
-    protected WebElement pricePerMonthLocator;
+    protected WebElement deskPricePerMonthLocator;
 
     @FindBy(css = "#new-products-holder button#custom-rule-save")
     protected WebElement saveProductLocator;
 
     @FindBy(xpath = "//div[contains(@class,'stepNavigation')]//a[contains(text(),'Submit for review')]")
     protected WebElement submitToReview;
+
+
+
+    //FifthPage Private office Locators
+
+    @FindBy(css = ".yellow")
+    protected WebElement addAnotherProductBtnLocator;
+
+    @FindBy(css = ".form-control.create-office-type.ignore-auto-save")
+    protected WebElement privateDropDownLocator;
+
+    @FindBy(id = "private_office.2.name")
+    protected WebElement privateOfficeNameLocator;
+
+    @FindBy(id = "private_office.2.sqm")
+    protected WebElement privateSquareMetersLocator;
+
+    @FindBy(id = "private_office.2.seats")
+    protected WebElement privateOfficeSeatsLocator;
+
+    @FindBy(id = "private_office.2.floor")
+    protected WebElement privateOfficeFloor;
+
+    @FindBy(id = "private_office.2.directions")
+    protected WebElement directionsLocator;
+
+    @FindBy(id = "private_office.2.price_day")
+    protected  WebElement privatePricePerDayLocator;
+
+    @FindBy(id = "private_office.2.price_week")
+    protected WebElement privatePricePerWeekLocator;
+
+    @FindBy(id = "private_office.2.price_month")
+    protected WebElement privatePricePerMonthLocator;
+
+    @FindBy(id = "private_office.2.equipment.1.selected")
+    protected WebElement projectorChecked;
+
+    @FindBy(id = "private_office.2.equipment.1.paytype")
+    protected WebElement projectorDropDownLocator;
+
+    @FindBy(id = "private_office.2.equipment.2.paytype")
+    protected WebElement whiteboardDropDownLocator;
+
+    @FindBy(id = "private_office.2.equipment.1.price")
+    protected WebElement projectorPriceLocator;
+
+    @FindBy(id = "private_office.2.equipment.2.price")
+    protected WebElement whiteBoardPriceLocator;
+
+    @FindBy(id = "custom-rule-save")
+    protected WebElement clickSaveBtn;
+
 }

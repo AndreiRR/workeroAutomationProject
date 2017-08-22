@@ -34,8 +34,7 @@ public class OfficeThirdPage extends CreateOfficeLocators {
         parkingDpdDwnOptionLocator.click();
 
     }
-
-
+    
     public OfficeFourthPage goToHouseRulePage() {
         continueBtnLocator.click();
 
